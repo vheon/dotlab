@@ -1,0 +1,3 @@
+!Ctrl on Caps Lock
+remove Lock = Caps_Lock
+keysym Caps_Lock = Ctrl_L

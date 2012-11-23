@@ -1,0 +1,11 @@
+snippet ifc "ifconfig setup" !b
+ifconfig eth${1:0} ${2:ip} up
+endsnippet
+
+snippet rd "route add default" !b
+route add default gw ${1:ip} dev eth${2:0}
+endsnippet
+
+snippet ra "route add -net" !b
+route add -net ${1:network} gw ${2:next-hop} dev eth${3:0}
+endsnippet

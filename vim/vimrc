@@ -122,6 +122,8 @@ if !exists('autocommands_loaded')
     au BufLeave * set nocursorline
     au BufReadPre * set nocursorline
 
+    au BufNewFile,BufRead *.startup set ft=startup
+
 endif
 
 
@@ -228,3 +230,6 @@ map <C-f> :NERDTreeToggle<cr>
 
 " delimitMate
 inoremap <leader><Tab> <C-R>=delimitMate#JumpAny("\<leader><Tab>")<CR>
+
+" ultisnips
+let g:UltiSnipsEditSplit="vertical"

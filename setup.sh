@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-dir=$(basename $0)
+dir=$(dirname $0)
 
 echo "symlinking vim, bin, xmodmap"
 ln -s $dir/Xmodmap $HOME/.Xmodmap

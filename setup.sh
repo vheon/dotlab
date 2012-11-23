@@ -20,5 +20,8 @@ echo
 echo "add \$HOME/bin to PATH"
 echo "export PATH=$HOME/bin:$PATH" >> $HOME/.bashrc
 echo
+echo "re-source .bashrc"
+source $HOME/.bashrc
+echo
 echo "starting simpleswitcher"
 simpleswitcher &> /dev/null &

@@ -29,16 +29,13 @@ ${1:domain}.        IN  NS      ${2:dns name}.
 $2.                 IN  A       ${3:ip}
 endsnippet
 
-snippet zonem "zone in named.conf" !b
-zone "${1:.}" {
-    type ${2:hint}
-    file "/etc/bind/db.root"
-};
-endsnippet
-
 snippet zone "zone in named.conf" !b
 zone "${1:zone}" {
     type ${2:master};
-    file "/etc/bind/db.`!p snip.rv = ".".join(t[1].split(".")[::-1])`"
+    file "/etc/bind/db.`!p 
+if t[1] == ".":
+    snip.rv = "root"
+else:
+    snip.rv = ".".join(t[1].split(".")[::-1])`"
 };
 endsnippet

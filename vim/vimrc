@@ -47,7 +47,9 @@ colorscheme solarized
 set background=dark
 
 " Lower a little bit the timeout
-set timeoutlen=750
+set ttimeout
+set timeoutlen=500
+set ttimeoutlen=50
 
 " =============== Turn Off Swap Files ===============
 

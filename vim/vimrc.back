@@ -1,28 +1,18 @@
 " Use Vim settings, rather then Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
+
+" =============== Pathogen Initialization ===============
+" This loads all the plugins in ~/.vim/bundle
+" Use tpope's pathogen plugin to manage all other plugins
+
+" Disable the filetype recognition to be sure to run always pathogen
 filetype off
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+" runtime bundle/pathogen/autoload/pathogen.vim
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
 
-runtime! macros/matchit.vim
-
-Bundle 'gmarik/vundle'
-
-Bundle 'vheon/vim-colors-solarized'
-
-Bundle 'Lokaltog/vim-powerline'
-
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-sleuth'
-Bundle 'tpope/vim-repeat'
-Bundle 'tpope/vim-commentary'
-Bundle 'tpope/vim-unimpaired'
-Bundle 'scrooloose/nerdtree'
-Bundle 'godlygeek/tabular'
-Bundle 'SirVer/ultisnips'
-Bundle 'sjl/gundo.vim'
 
 " =============== General Config ===============
 
@@ -184,23 +174,34 @@ cnoremap <C-l> <Right>
 imap jj <ESC>
 cmap jj <c-c>
 
+" Swap ; with : in normal mode
+" nnoremap ; :
+" nnoremap : ;
+
+" Go to last edit location with ,.
+nnoremap ,. '.
+
 " =======================================
 "           Split Manipulation
 " =======================================
 " Easy splits navigation
-map gh <C-w>h
-map gj <C-w>j
-map gk <C-w>k
-map gl <C-w>l
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+
+" Resize splits
+nnoremap <silent> + <c-w>+
+nnoremap <silent> - <c-w>-
+nnoremap <silent> > <c-w>>
+nnoremap <silent> < <c-w><
 
 " ============================
 " Shortcuts for everyday tasks
 " ============================
 
 " Clean the last search
-if exists(":nohls")
-    nnoremap <silent> <C-L> :nohls<CR><C-L>
-endif
+nmap <silent> <Leader>/ :nohlsearch<CR>
 
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
@@ -223,10 +224,17 @@ vnoremap <silent> at atV
 " cmap w!! w !sudo tee % >/dev/null
 command! W exec 'w !sudo tee % > /dev/null' | e!
 
+" Open the current buffer in the browser
+nnoremap <F12> :exe ':silent !chromium %'<cr>
+
+
 " NERDTree
 let NERDTreeMinimalUI=1
 let NERDTreeQuitOnOpen=1
 map <C-f> :NERDTreeToggle<cr>
+
+" delimitMate
+inoremap <leader><Tab> <C-R>=delimitMate#JumpAny("\<leader><Tab>")<CR>
 
 " ultisnips
 let g:UltiSnipsEditSplit="vertical"

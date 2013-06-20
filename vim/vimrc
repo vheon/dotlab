@@ -6,6 +6,9 @@ filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
+let $MYVIMRC = resolve(expand('<sfile>:p'))
+let g:dotvim = fnamemodify($MYVIMRC, ':h')
+
 runtime! macros/matchit.vim
 
 Bundle 'gmarik/vundle'
@@ -23,6 +26,9 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'godlygeek/tabular'
 Bundle 'SirVer/ultisnips'
 Bundle 'sjl/gundo.vim'
+Bundle 'kana/vim-smartinput'
+Bundle 'vheon/YouCompleteMe'
+
 
 " =============== General Config ===============
 
@@ -233,3 +239,10 @@ map <C-f> :NERDTreeToggle<cr>
 
 " ultisnips
 let g:UltiSnipsEditSplit="vertical"
+
+
+let g:ycm_global_ycm_extra_conf = g:dotvim.'/ycm.py'
+let g:ycm_key_list_select_completion = ['<C-n>']
+let g:ycm_key_list_previous_completion = ['<C-n>']
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1

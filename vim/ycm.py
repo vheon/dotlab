@@ -6,7 +6,7 @@ def FlagsForFile(filename):
     if filetype == 'c':
         flags = ['-xc', '-Wall', '-Wextra', '-pedantic', '-I/usr/lib/openmpi/include', '-I/usr/lib/openmpi/include/openmpi']
     elif filetype == 'cpp':
-        flags = ['-xc++', '-Wall', '-Wextra', '-pedantic']
+        flags = ['-xc++', '-Wall', '-Wextra', '-pedantic', '-I/usr/lib/openmpi/include', '-I/usr/lib/openmpi/include/openmpi']
     else:
         flags = []
 

@@ -147,6 +147,11 @@ if has('autocmd')
         au InsertEnter * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape ibeam"
         au VimEnter,VimLeave,InsertLeave * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape block"
     augroup END
+    
+    augroup startup_filetype
+        au!
+        au BufNewFile,BufRead *.startup set ft=startup
+    augroup END
 
 endif
 

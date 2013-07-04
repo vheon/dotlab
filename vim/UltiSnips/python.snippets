@@ -1,0 +1,15 @@
+snippet domain "Create a new domain for labstart" !b
+$1 = ("$1", "$2")
+$0
+endsnippet
+
+snippet hw "Create new network hw" !b
+$1 = ("$1", {
+    $2
+    })
+$0
+endsnippet
+
+snippet int "add interface" !b
+$1: ($2, "$3"),$0
+endsnippet

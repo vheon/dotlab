@@ -1,5 +1,12 @@
 #!/usr/bin/env bash
 
+takelab()
+{
+    mkdir $1
+    cd $1
+    cp $HOME/dotlab/assets/labstart.py .
+}
+
 hw()
 {
     local hws="$@"

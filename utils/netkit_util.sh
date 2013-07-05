@@ -24,10 +24,22 @@ bindit()
 
     for m in $hws; do
         if [[ -f $m.startup ]] && [[ -d $m ]]; then
-            echo "" >> $m.startup
             echo "/etc/init.d/bind start" >> $m.startup
             mkdir -p $m/etc/bind
             touch $m/etc/bind/named.conf
+        fi
+    done
+}
+
+routeit()
+{
+    local hws="$@"
+
+    for m in $hws; do
+        if [[ -f $m.startup ]] && [[ -d $m ]]; then
+            echo "/etc/init.d/zebra start" >> $m.startup
+            mkdir -p $m/etc/zebra
+            echo "zebra=yes" > $m/etc/zebra/daemons
         fi
     done
 }

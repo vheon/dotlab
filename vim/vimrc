@@ -50,7 +50,11 @@ set cursorline
 set hidden
 set t_Co=16
 
-colorscheme solarized
+try
+  colorscheme solarized
+catch
+  colorcheme desert
+endtry
 set background=dark
 
 " Lower a little bit the timeout

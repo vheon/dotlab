@@ -43,3 +43,15 @@ routeit()
         fi
     done
 }
+
+ripit()
+{
+    local hws="$@"
+    
+    for m in $hws; do
+        if [[ -f $m.startup ]] && [[ -d $m/etc/zebra ]] && [[ -f $m/etc/zebra/daemons ]]; then
+            echo "ripd=yes" >> $m/etc/zebra/daemons
+            touch $m/etc/zebra/ripd.conf
+        fi
+    done
+}

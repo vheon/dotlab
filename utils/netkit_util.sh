@@ -55,3 +55,15 @@ ripit()
         fi
     done
 }
+
+bgpit()
+{
+    local hws="$@"
+    
+    for m in $hws; do
+        if [[ -f $m.startup ]] && [[ -d $m/etc/zebra ]] && [[ -f $m/etc/zebra/daemons ]]; then
+            echo "bgpd=yes" >> $m/etc/zebra/daemons
+            touch $m/etc/zebra/bgpd.conf
+        fi
+    done
+}

@@ -8,18 +8,18 @@ endglobal
 
 snippet soa "Bootstrap a new Bind zonefile" b
 $TTL 60000
-@               IN      SOA     ${1:domain}.    root.$1. (
+@               IN      SOA     ${1:dnsname}${2:zone}.    root.$1.$2. (
                         `!p snip.rv = newsoa()`     ;serial
                         21600          ;refresh every 6 hours
                         3600           ;retry after one hour
                         604800         ;expire after a week
                         86400 )        ;minimum TTL of 1 day
 
-@               IN      NS              $1.
-$1.                IN      A            $2
+@               IN      NS              $1.$2.
+$1                IN      A            $2
 endsnippet
 
 snippet nsa "Insert NS Record and A record" !b
-${1:domain}.     IN      NS      ${2:dnsname}.$1.
+${1:zone}.     IN      NS      ${2:dnsname}.$1.
 $2.$1.     IN      A       ${3:ip}
 endsnippet

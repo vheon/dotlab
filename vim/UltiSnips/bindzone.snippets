@@ -1,0 +1,25 @@
+global !p
+def newsoa():
+    import datetime
+    now = datetime.datetime.now()
+    # return standard SOA formatted serial for today
+    return now.strftime("%Y%m%d00")
+endglobal
+
+snippet soa "Bootstrap a new Bind zonefile" b
+$TTL 60000
+@               IN      SOA     ${1:domain}.    root.$1. (
+                        `!p snip.rv = newsoa()`     ;serial
+                        21600          ;refresh every 6 hours
+                        3600           ;retry after one hour
+                        604800         ;expire after a week
+                        86400 )        ;minimum TTL of 1 day
+
+@               IN      NS              $1.
+$1.                IN      A            $2
+endsnippet
+
+snippet nsa "Insert NS Record and A record" !b
+${1:domain}.     IN      NS      ${2:dnsname}.$1.
+$2.$1.     IN      A       ${3:ip}
+endsnippet

@@ -28,6 +28,7 @@ Bundle 'godlygeek/tabular'
 Bundle 'SirVer/ultisnips'
 Bundle 'sjl/gundo.vim'
 Bundle 'kana/vim-smartinput'
+Bundle 'kien/ctrlp.vim'
 Bundle 'vheon/YouCompleteMe'
 
 

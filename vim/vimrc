@@ -29,8 +29,8 @@ Bundle 'SirVer/ultisnips'
 Bundle 'sjl/gundo.vim'
 Bundle 'kana/vim-smartinput'
 Bundle 'kien/ctrlp.vim'
-Bundle 'vheon/YouCompleteMe'
-
+"Bundle 'vheon/YouCompleteMe'
+Bundle 'https://bitbucket.org/vheon/youcompleteme.git'
 
 " =============== General Config ===============
 

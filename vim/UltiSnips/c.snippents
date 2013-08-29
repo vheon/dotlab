@@ -1,0 +1,4 @@
+snippet displacement "Create the displacement macro" b
+#define displacement(type, member) \
+	  (((unsigned long) &((type *)0)->member) - (unsigned long)((type *)0))
+endsnippet

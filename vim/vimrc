@@ -30,7 +30,7 @@ Bundle 'SirVer/ultisnips'
 Bundle 'sjl/gundo.vim'
 Bundle 'kana/vim-smartinput'
 Bundle 'kien/ctrlp.vim'
-"Bundle 'vheon/YouCompleteMe'
+Bundle 'scrooloose/syntastic'
 Bundle 'https://bitbucket.org/vheon/youcompleteme.git'
 
 " =============== General Config ===============
@@ -251,6 +251,9 @@ map <C-f> :NERDTreeToggle<cr>
 
 " ultisnips
 let g:UltiSnipsEditSplit="vertical"
+
+" syntastic
+let g:syntastic_always_populate_loc_list = 1
 
 
 let g:ycm_global_ycm_extra_conf = g:dotvim.'/ycm.py'

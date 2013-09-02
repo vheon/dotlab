@@ -17,6 +17,7 @@ Bundle 'vheon/vim-colors-solarized'
 
 Bundle 'Lokaltog/vim-powerline'
 
+Bundle 'drmikehenry/vim-fixkey'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-sleuth'
 Bundle 'tpope/vim-repeat'
@@ -183,14 +184,12 @@ nnoremap Y y$
 " dashes are very common, and in position that require
 " a lot of hand movement. Vim to the rescue
 
-imap <silent> <M-k> _
-imap <silent> <M-d> _
-imap <silent> <M-K> -
-imap <silent> <M-D> -
-cnoremap <M-k> _
-cnoremap <M-d> _
-cnoremap <M-K> -
-cnoremap <M-D> -
+imap <silent> <M-j> _
+imap <silent> <M-l> -
+
+cnoremap <M-j> _
+cnoremap <M-l> -
+
 
 " ========================================
 " Not use the arrow key in command line

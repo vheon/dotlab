@@ -130,6 +130,8 @@ if has('mouse')
     set mouse=a
 endif
 
+set completeopt-=preview
+
 
 set statusline=%F%m%r%h%w\ [Format:\ %{&ff}]\ [Type:\ %Y]\ [Lines:\ %L\ @\ %p%%\ {%l;%v}]
 set laststatus=2

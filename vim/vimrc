@@ -168,7 +168,7 @@ endif
 "
 "
 " Change the mapleader from \ to ,
-let mapleader=","
+let mapleader="\<Space>"
 
 "make Y consistent with C and D
 nnoremap Y y$
@@ -226,9 +226,6 @@ endif
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
-" Quickly run the macro in the register q
-nnoremap <Space> @q
-
 " visual shifting (does not exit Visual mode)
 vnoremap < <gv
 vnoremap > >gv
@@ -242,6 +239,9 @@ vnoremap <silent> at atV
 " stolen from Steve Losh
 " cmap w!! w !sudo tee % >/dev/null
 command! W exec 'w !sudo tee % > /dev/null' | e!
+
+" Toggle solarized
+call togglebg#map("<F5>")
 
 " NERDTree
 let NERDTreeMinimalUI=1
